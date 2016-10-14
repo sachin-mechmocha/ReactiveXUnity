@@ -7,6 +7,7 @@ using UniRx.Triggers;
 public class PlayerController : MonoBehaviour {
 
 	private float _WalkSpeed = 5f;
+	private float _RunSpeed = 10f;
 	private CharacterController _Character;
 
 	/// <summary>
@@ -22,7 +23,7 @@ public class PlayerController : MonoBehaviour {
 		inputs.Movement
 		.Where (v => v != Vector2.zero)
 		.Subscribe (inputMovement => {
-			var inputVelocity = inputMovement * _WalkSpeed;
+			var inputVelocity = inputMovement * (inputs.Run.Value ? _RunSpeed : _WalkSpeed);
 
 			var playerVelocity = inputVelocity.x * transform.right + inputVelocity.y * transform.forward;
 			var distance = playerVelocity * Time.fixedDeltaTime;
