@@ -5,11 +5,12 @@ using UniRx.Triggers;
 
 public class Inputs : MonoBehaviour {
 
+	public static Inputs Instance {get; private set;}
 	public IObservable<Vector2> Movement {get; private set;}
-	
 
 	// Use this for initialization
 	void Awake () {
+		Instance = this;
 		Movement = this.FixedUpdateAsObservable ()
 			.Select(_ => {
 				var x = Input.GetAxis("Horizontal");
