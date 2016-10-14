@@ -28,6 +28,13 @@ public class PlayerController : MonoBehaviour {
 			var distance = playerVelocity * Time.fixedDeltaTime;
 			_Character.Move(distance); 
 		}).AddTo(this);
+
+
+		inputs.Movement
+		.Where (v => v != Vector2.zero)
+		.Subscribe (inputMovement => {
+			Debug.Log ("Move by " + inputMovement * _WalkSpeed);
+		}).AddTo (this);
 	}
 	
 	// Update is called once per frame
