@@ -37,7 +37,7 @@ public class CameraBob : MonoBehaviour {
       		distance %= _PlayerSignal.Stride;
       		var magnitude = Inputs.Instance.Run.Value ? _RunBobMagnitude : _WalkBobMagnitude;
       		var deltaPos = magnitude * _Bob.Evaluate(distance / _PlayerSignal.Stride) * Vector3.up;
-     	 	// _View.transform.localPosition = _InitialPosition + deltaPos;
+     	 	_View.transform.localPosition = _InitialPosition + deltaPos;
    		}).AddTo(this);
 	}
 	

@@ -21,7 +21,7 @@ public class PlayerController : PlayerSignal {
 		}
 	}
 
-	private float stride;
+	private float stride = 2.5f;
 	public override float Stride {
 		get {
 			return stride;
