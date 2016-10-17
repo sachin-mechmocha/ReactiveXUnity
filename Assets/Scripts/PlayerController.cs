@@ -49,13 +49,6 @@ public class PlayerController : PlayerSignal {
 			_Character.Move(distance); 
 			walked.OnNext(_Character.velocity * Time.fixedDeltaTime);
 		}).AddTo(this);
-
-
-		inputs.Movement
-		.Where (v => v != Vector2.zero)
-		.Subscribe (inputMovement => {
-			Debug.Log ("Move by " + inputMovement * _WalkSpeed);
-		}).AddTo (this);
 	}
 	
 	// Update is called once per frame
