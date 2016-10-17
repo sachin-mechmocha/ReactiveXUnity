@@ -19,8 +19,11 @@ public class Inputs : MonoBehaviour {
 				return new Vector2(x,y).normalized;
 			});
 		
+		var runValue = false;
 		Run = this.UpdateAsObservable ()
-			.Select (_ => Input.GetButton("Fire3"))
+			.Where (_=> Input.GetButton ("Fire3"))
+			.Do (_ => runValue = !runValue)
+			.Select (_ => runValue)
 			.ToReadOnlyReactiveProperty ();
 	}
 	
