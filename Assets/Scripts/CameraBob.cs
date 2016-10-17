@@ -40,9 +40,4 @@ public class CameraBob : MonoBehaviour {
      	 	_View.transform.localPosition = _InitialPosition + deltaPos;
    		}).AddTo(this);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }
