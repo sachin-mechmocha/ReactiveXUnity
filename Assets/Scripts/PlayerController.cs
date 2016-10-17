@@ -54,6 +54,8 @@ public class PlayerController : PlayerSignal {
 		}
 	}
 
+	public AudioSource audioSource;
+	public AudioClip jump;
 	/// <summary>
 	/// Awake is called when the script instance is being loaded.
 	/// </summary>
@@ -100,5 +102,9 @@ public class PlayerController : PlayerSignal {
 			}
 			stepDistance %= Stride;
 		});
+
+		Jumped.Subscribe ( _ => {
+			audioSource.PlayOneShot (jump);
+		}).AddTo (this);
 	}
 }
